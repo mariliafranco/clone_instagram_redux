@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 import { FiUser, FiHeart } from "react-icons/fi";
+import { connect } from "react-redux";
 
-export default class TopInfo extends Component {
+class TopInfo extends Component {
   render() {
     return (
       <div className="top-info">
-        <span>
+        <span onClick={this.props.dispatch({ type: 'NEW_LIKE' })} >
           <FiHeart />
-          <b>1</b>
+          <b>{this.props.contador}</b>
         </span>
         <span>
           <FiUser />
-          Eu
         </span>
       </div>
     );
   }
 }
+function mapStateToProps(state){
+  return {
+    contador: state.payload.likes,
+    user: state.payload.name
+  };
+}
+
+export default connect(mapStateToProps)(TopInfo);
