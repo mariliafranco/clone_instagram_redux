@@ -2,31 +2,39 @@ import { createStore } from "redux";
 
 const initialState = {
     count: 0,
-    payload: {} 
+    payloadUser: {},
+    payloadPosts: [],
+    payloadStories: [],
+    payloadPerfil: {} 
 }
 
 function Reducer(state = initialState, action){
     switch(action.type){
         case 'GET_USER':
             return{
-                payload: action.payload
+                ...state,
+                payloadUser: action.payload
             };
         case 'GET_POSTS':
             return{
-                payloadPosts: action.payloadPosts
+                ...state,
+                payloadPosts: action.payload
             };
         case 'GET_STORIES':
             return{
-                payloadStories: action.payloadStories
+                ...state,
+                payloadStories: action.payload
             };
         case 'GET_PERFIL':
             return{
-                payloadPerfil: action.payloadPerfil
+                ...state,
+                payloadPerfil: action.payload
             };
         case 'NEW_LIKE':
             return{
-                payload: state.payload.likes + 1
-            }
+                ...state,
+                payloadUser: action.payload
+            };
                 default:
                     return state;
     }

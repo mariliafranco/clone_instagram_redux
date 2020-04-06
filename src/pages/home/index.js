@@ -15,47 +15,31 @@ componentDidMount = async () => {
       payload: resposta.data
     })
   })
-}
 
-componentDidMount = async () => {
-  await axios.put("http://localhost:3000/users")
+  await axios.get("http://localhost:3000/posts")
   .then(resposta => {
     this.props.dispatch({
-      type: 'NEW_LIKE',
+      type: 'GET_POSTS',
+      payload: resposta.data
+    })
+  })
+
+  await axios.get("http://localhost:3000/stories")
+  .then(resposta => {
+    this.props.dispatch({
+      type: 'GET_STORIES',
+      payload: resposta.data
+    })
+  })
+
+  await axios.get("http://localhost:3000/perfil")
+  .then(resposta => {
+    this.props.dispatch({
+      type: 'GET_PERFIL',
       payload: resposta.data
     })
   })
 }
-
-// componentDidMount = async () => {
-//   await axios.get("http://localhost:3000/posts")
-//   .then(resposta => {
-//     this.props.dispatch({
-//       type: 'GET_POSTS',
-//       payload: resposta.data
-//     })
-//   })
-// }
-
-// componentDidMount = async () => {
-//   await axios.get("http://localhost:3000/stories")
-//   .then(resposta => {
-//     this.props.dispatch({
-//       type: 'GET_STORIES',
-//       payload: resposta.data
-//     })
-//   })
-// }
-
-// componentDidMount = async () => {
-//   await axios.get("http://localhost:3000/perfil")
-//   .then(resposta => {
-//     this.props.dispatch({
-//       type: 'GET_PERFIL',
-//       payload: resposta.data
-//     })
-//   })
-// }
 
 render () {
   return (

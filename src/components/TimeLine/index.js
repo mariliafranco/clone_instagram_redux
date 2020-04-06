@@ -1,24 +1,33 @@
-import React from "react";
-import { FiHeart } from 'react-icons/fi'
+import React, { Component } from "react";
+import Post from "./posts"
+import { connect } from "react-redux";
 
-export default function TimeLine() {
+class TimeLine extends Component {
+   
+   render() {
+      const posts = this.props.posts
+      
+      return (
+         <div className="timeline">
+         {         
+            posts.map(post => (
+               <Post key={post.id}
+               userPicture={post.userPicture}
+               userName={post.user}
+               location={post.location}
+               postPicture={post.postPicture}
+               description={post.description}/>
+               ))
+         }
+         </div>
+      );
+   }      
+}    
 
-  return (
-    <div className="post">
-      <header>
-        <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="user" />
-        <div className="post-user">
-          <strong>nasa</strong>
-          <span>Mars</span>
-        </div>
-      </header>
-      <div className="post-image">
-        <img src="https://www.publicdomainpictures.net/pictures/90000/velka/mars.jpg" alt="post" />
-      </div>
-      <div className="post-likes">
-        <FiHeart />
-      </div>
-      <p>Waving goodbye to a spacecraft.</p>
-    </div>
-  );
+function mapStateToProps(state) {
+   return {
+      posts: state.payloadPosts
+   };
 }
+
+export default connect(mapStateToProps)(TimeLine)
