@@ -1,14 +1,15 @@
 import React from "react";
-import Home from "./pages/home";
 import store from "./components/Reducer"
 import { Provider } from "react-redux";
 import './App.css';
-
+import Header from "./components/Header";
+import Routes from "./Routes"
 
 function App() {
   return (
     <Provider store={store}>
-      <Home />
+      <Header />
+      <Routes />
     </Provider>
   );
 }
