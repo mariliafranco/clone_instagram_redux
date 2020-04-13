@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { GoVerified } from "react-icons/go";
 
 class Sidebar extends Component {
 
@@ -30,12 +31,15 @@ class Sidebar extends Component {
                         <img alt="Perfil" src={userPicture} />
                      </Link>
                      <div className="user-bio">
-                        <strong>{name}</strong>
-                        <span>{username}</span>
+                        <strong>{username}</strong>
+                        <span>{name}</span>
                      </div>
                   </div>
                   <div className="stories">
-                     <h2>Stories</h2>
+                     <div className="navbar-stories">
+                        <h2>Stories</h2>
+                        <h5>Ver tudo</h5>
+                     </div>
                      <ul>
                         {stories.map(storie => (
                            <ul key={storie.id}>
@@ -44,7 +48,7 @@ class Sidebar extends Component {
                                     <img src={storie.userPicture} alt="user" />
                                  </div>
                                  <div className="storie-user">
-                                    <strong>{storie.user}</strong>
+                                    <strong>{storie.user}{storie.verify == true && <GoVerified />}</strong>
                                     <span>{storie.time}</span>
                                  </div>
                               </div>

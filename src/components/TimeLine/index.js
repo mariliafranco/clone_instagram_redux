@@ -3,6 +3,7 @@ import axios from "axios";
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { connect } from "react-redux";
+import { GoVerified } from "react-icons/go";
 
 class TimeLine extends Component {
   state = {
@@ -52,7 +53,7 @@ class TimeLine extends Component {
                 <header>
                   <img src={post.userPicture} alt="user" />
                   <div className="post-user">
-                    <strong>{post.user}</strong>
+                    <strong>{post.user}<GoVerified /></strong>
                     <span>{post.location}</span>
                   </div>
                 </header>

@@ -278,3 +278,24 @@ img {
   transition: all 0.3s ease;
   font-size: 50px;
 }
+
+.stories h5 {
+  display: flex;
+  align-items: right;
+  cursor: pointer;
+}
+
+.navbar-stories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-user svg {
+  color: rgb(0, 89, 255);
+  margin: 5px 3px 0;
+}
+
+.storie-user svg {
+  color: rgb(0, 89, 255);
+  margin: 5px 3px 0;
+}
