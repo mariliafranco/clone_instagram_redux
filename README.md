@@ -1,4 +1,4 @@
-** Clone do Instagram **
+**Clone do Instagram**
 
 Esta codificação foi realizada em SPA (Single Page Application), com arquitetura Flux, onde o uso do redux possibilita a troca de informações e estados globais entre diferentes níveis de componentes da aplicação.
 
